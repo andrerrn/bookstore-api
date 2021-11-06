@@ -3,6 +3,7 @@ package com.andre.bookstore.domain;
 import java.io.Serializable;
 import java.util.Objects;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,18 +13,22 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class Livro implements Serializable {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String titulo;
 	private String nome_autor;
 	private String texto;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "categoria_id")
 	private Categoria categoria;
 
+	public Livro() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	public Livro(Integer id, String titulo, String nome_autor, String texto, Categoria categoria) {
 		super();
@@ -34,62 +39,50 @@ public class Livro implements Serializable {
 		this.categoria = categoria;
 	}
 
-
 	public Integer getId() {
 		return id;
 	}
-
 
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
-
 	public String getTitulo() {
 		return titulo;
 	}
-
 
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
 
-
 	public String getNome_autor() {
 		return nome_autor;
 	}
-
 
 	public void setNome_autor(String nome_autor) {
 		this.nome_autor = nome_autor;
 	}
 
-
 	public String getTexto() {
 		return texto;
 	}
-
 
 	public void setTexto(String texto) {
 		this.texto = texto;
 	}
 
-
 	public Categoria getCategoria() {
 		return categoria;
 	}
-
 
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
 
-
 	@Override
 	public int hashCode() {
 		return Objects.hash(categoria, id, nome_autor, texto, titulo);
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -104,7 +97,5 @@ public class Livro implements Serializable {
 				&& Objects.equals(nome_autor, other.nome_autor) && Objects.equals(texto, other.texto)
 				&& Objects.equals(titulo, other.titulo);
 	}
-	
-	
 
 }
