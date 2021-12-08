@@ -16,15 +16,16 @@ public class DBService {
 	private CategoriaRepository categoriaRepository;
 	@Autowired
 	private LivroRepository livroReprository;
-
+	
+	
 	public void instaciaBasedeDados() {
-		Categoria cat1 = new Categoria(null, "Informatica", "Livro de TI");
-		Categoria cat2 = new Categoria(null, "economia", "Livro de economia");
-		Categoria cat3 = new Categoria(null, "matematica", "Livro de matematica");
+		Categoria cat1 = new Categoria(1, "Informatica", "Livro de TI");
+		Categoria cat2 = new Categoria(2, "economia", "Livro de economia");
+		Categoria cat3 = new Categoria(3, "matematica", "Livro de matematica");
 
-		Livro l1 = new Livro(null, "Clean Code", "Robert Martin", "Lorem ipsun", cat1);
-		Livro l2 = new Livro(null, "desenvolvimento", "acemoglu", "texto", cat2);
-		Livro l3 = new Livro(null, "calculo 1", "stuarthw", "Lorem ipsun", cat3);
+		Livro l1 = new Livro(1, "Clean Code", "Robert Martin", "Lorem ipsun", cat1);
+		Livro l2 = new Livro(2, "desenvolvimento", "acemoglu", "texto", cat2);
+		Livro l3 = new Livro(3, "calculo 1", "stuarthw", "Lorem ipsun", cat3);
 
 		cat1.getLivros().addAll(Arrays.asList(l1));
 		cat2.getLivros().addAll(Arrays.asList(l2));
