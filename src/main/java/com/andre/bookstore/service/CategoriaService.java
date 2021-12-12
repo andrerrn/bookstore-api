@@ -1,6 +1,7 @@
 package com.andre.bookstore.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import java.util.*;
 
@@ -44,7 +45,12 @@ public class CategoriaService {
 
 	public void delete(Integer id) {
 		findById(id);
-		repository.deleteById(id);
+		try {
+			repository.deleteById(id);
+		} catch (DataIntegrityViolationException e) {
+			throw new com.andre.bookstore.service.exceptions.DataIntegrityViolationException("A Categoria não pode ser deletada, Posuui livros associados");
+		}
+		
 		
 		
 	}
