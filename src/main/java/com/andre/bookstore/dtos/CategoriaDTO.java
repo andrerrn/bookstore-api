@@ -1,6 +1,10 @@
 package com.andre.bookstore.dtos;
 
 import java.io.Serializable;
+
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
+
 import com.andre.bookstore.domain.Categoria;
 
 public class CategoriaDTO implements Serializable{
@@ -8,7 +12,11 @@ public class CategoriaDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	private Integer id;
+	@NotEmpty(message = "Campo NOME não pode ser vazio")
+	@Length(min = 3, max = 100, message = "O campo tem que ter entre 3 a 100 caracter")
 	private String nome;
+	@NotEmpty(message = "Campo NOME não pode ser vazio")
+	@Length(min = 3, max = 200, message = "O campo tem que ter entre 3 a 200 caracter")
 	private String descricao;
 	public CategoriaDTO() {
 		super();
