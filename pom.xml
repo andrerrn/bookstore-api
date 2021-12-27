@@ -11,7 +11,7 @@
 	<groupId>com.andre</groupId>
 	<artifactId>bookstore</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>bookstore</name>
+	<name>BookstoreApplication</name>
 	<description>project for Spring Boot and Angular 10</description>
 	<properties>
 		<java.version>11</java.version>
@@ -69,26 +69,19 @@
 	</dependencies>
 
 	<build>
- <plugins>
-     <plugin> 
-
-                <!-- Building an executable jar -->
-
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.1.0</version>
-                <configuration>
-                  <archive>
-                    <manifest>
-
-                    <!-- give full qualified name of your main class-->
-                      <mainClass>com.andre.BookstoreApplication</mainClass>
-
-                    </manifest>
-                  </archive>
-                </configuration>
-    </plugin>
- </plugins>
-</build>
+		<plugins>
+			<plugin>
+    			<groupId>org.apache.maven.plugins</groupId>
+    			<artifactId>maven-resources-plugin</artifactId>
+    			<version>3.1.0</version>
+			</plugin>
+			
+			
+			<!--<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			  </plugin>-->
+		</plugins>
+	</build>
 
 </project>
