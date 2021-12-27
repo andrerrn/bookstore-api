@@ -69,23 +69,26 @@
 	</dependencies>
 
 	<build>
-  <plugins>
-    <plugin>
-      <!-- Build an executable JAR -->
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-jar-plugin</artifactId>
-      <version>3.1.0</version>
-      <configuration>
-        <archive>
-          <manifest>
-            <addClasspath>true</addClasspath>
-            <classpathPrefix>lib/</classpathPrefix>
-            <mainClass>com.mypackage.MyClass</mainClass>
-          </manifest>
-        </archive>
-      </configuration>
+ <plugins>
+     <plugin> 
+
+                <!-- Building an executable jar -->
+
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                  <archive>
+                    <manifest>
+
+                    <!-- give full qualified name of your main class-->
+                      <mainClass>com.andre.BookstoreApplication</mainClass>
+
+                    </manifest>
+                  </archive>
+                </configuration>
     </plugin>
-  </plugins>
+ </plugins>
 </build>
 
 </project>
